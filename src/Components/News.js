@@ -95,7 +95,6 @@ News.defaultProps = {
 News.propTypes = {
   pageSize: PropTypes.number,
   category: PropTypes.string,
-  apiKey: PropTypes.string.isRequired,
 };
 
 export default News;

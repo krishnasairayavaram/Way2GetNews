@@ -24,7 +24,7 @@ const News = (props) => {
     } finally {
       setLoading(false);
     }
-  }, [props.category, props.apiKey, props.pageSize, page]);
+  }, [props.category,props.pageSize, page]);
 
   useEffect(() => {
     setPage(1);

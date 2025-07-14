@@ -1,14 +1,20 @@
 const axios = require('axios');
 
 exports.handler = async function (event) {
-  const query = event.queryStringParameters.q || 'bitcoin';
+  const category = event.queryStringParameters.category || 'general';
+  const page = event.queryStringParameters.page || 1;
+  const pageSize = event.queryStringParameters.pageSize || 5;
+
   const apiKey = process.env.NEWS_API_KEY;
 
   try {
-    const response = await axios.get('https://newsapi.org/v2/everything', {
+    const response = await axios.get('https://newsapi.org/v2/top-headlines', {
       params: {
-        q: query,
-        apiKey: apiKey
+        country: 'us',
+        category,
+        page,
+        pageSize,
+        apiKey
       }
     });
 
@@ -19,7 +25,7 @@ exports.handler = async function (event) {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'NewsAPI fetch failed.' }),
+      body: JSON.stringify({ error: 'NewsAPI fetch failed.', detail: error.message }),
     };
   }
 };

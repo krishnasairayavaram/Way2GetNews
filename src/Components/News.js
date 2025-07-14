@@ -11,7 +11,8 @@ const News = (props) => {
 
   const fetchNews = useCallback(async (pageNum = page) => {
     setLoading(true);
-    const apilink = `https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apiKey=${props.apiKey}&page=${pageNum}&pageSize=${props.pageSize}`;
+    const apilink = `/.netlify/functions/fetchNews?category=${props.category}&page=${pageNum}&pageSize=${props.pageSize}`;
+
     
     try {
       const response = await fetch(apilink);

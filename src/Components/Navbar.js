@@ -13,7 +13,7 @@ const Navbar = ({setPageSize,isInfiniteScroll,setIsInfiniteScroll}) => {
   };
   return (
     <div>
-      <nav className="navbar navbar-expand-lg" style={{backgroundColor: '#f9f5e3', borderBottom: '2px solid #ccc'}}>
+      <nav className="navbar fixed-top navbar-expand-lg" style={{backgroundColor: '#f9f5e3', borderBottom: '2px solid #ccc'}}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             Way2GetNews
